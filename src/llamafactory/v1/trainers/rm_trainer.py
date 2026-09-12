@@ -79,6 +79,8 @@ class RMTrainer(BaseTrainer):
     ) -> None:
         if args.cp_size > 1:
             raise NotImplementedError("RM trainer currently only supports cp_size == 1.")
+        if args.chunk_loss_size is not None:
+            raise NotImplementedError("Chunk Loss currently only supports SFT training.")
 
         if args.disable_dropout:
             disable_dropout_in_model(model)

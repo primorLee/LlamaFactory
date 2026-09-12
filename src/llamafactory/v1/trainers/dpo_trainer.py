@@ -97,6 +97,8 @@ class DPOTrainer(BaseTrainer):
     ) -> None:
         if args.cp_size > 1:
             raise NotImplementedError("DPO trainer currently only supports cp_size == 1.")
+        if args.chunk_loss_size is not None:
+            raise NotImplementedError("Chunk Loss currently only supports SFT training.")
 
         if args.disable_dropout:
             # DPO compares policy and reference log-probabilities for the same sequence. Keeping

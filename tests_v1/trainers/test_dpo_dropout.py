@@ -49,6 +49,7 @@ class _DropoutModel(torch.nn.Module):
 def _get_args(disable_dropout: bool = True):
     return SimpleNamespace(
         cp_size=1,
+        chunk_loss_size=None,
         disable_dropout=disable_dropout,
         pref_loss="orpo",
         pref_beta=0.1,
